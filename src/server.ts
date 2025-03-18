@@ -4,6 +4,7 @@ import fastifySensible from '@fastify/sensible';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
 import fastify, { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
+import cors from '@fastify/cors';
 import { registerBucketRoutes } from './routes/buckets.ts';
 import { registerObjectRoutes } from './routes/objects.ts';
 import { EnvSchema, envSchema } from './schemas/env-schema.ts';
@@ -23,6 +24,8 @@ export const buildServer = async () => {
       },
     },
   });
+
+  await server.register(cors);
 
   await server.register(fastify, {
     prefix: '/api',
