@@ -4,7 +4,7 @@ Just a simple REST API for viewing buckets, objects in AWS S3
 
 ## Prerequisite
 
-Node.js version 22
+Node.js version lts
 
 ## Installation
 
